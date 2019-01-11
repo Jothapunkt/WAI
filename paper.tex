@@ -7,40 +7,31 @@
 %
 \usepackage{makeidx} % allows for indexgeneration
 \usepackage{graphicx} % to use \includegraphics{...}
+\usepackage[utf8]{inputenc}
+%
+\setcounter{tocdepth}{2}
 %
 \begin{document}
 %
 \frontmatter % for the preliminaries
 %
 \pagestyle{headings}  % switches on printing of running heads
-\addtocmark{Hamiltonian Mechanics} % additional mark in the TOC
 %
 \mainmatter % start of the contributions
 %
-\title{Hamiltonian Mechanics unter besonderer Ber\"ucksichtigung der
-h\"ohreren Lehranstalten}
+\title{Comparing the Performance of Hash Tables and Balanced Binary Search Trees}
 %
-\titlerunning{Hamiltonian Mechanics} % abbreviated title (for running head)
+%\titlerunning{Comparing Hash Tables and Balanced BST} % abbreviated title (for running head)
 %                                      also used for the TOC unless
 %                                      \toctitle is used
 %
-\author{Ivar Ekeland\inst{1} \and Roger Temam\inst{2}
-Jeffrey Dean \and David Grove \and Craig Chambers \and Kim~B.~Bruce \and
-Elsa Bertino}
-%
-\authorrunning{Ivar Ekeland et al.} % abbreviated author list (for running head)
-%
+\author{Thomas Dunajski \and Jakob Höfner}
+
 %%%% list of authors for the TOC (use if author list has to be modified)
-\tocauthor{Ivar Ekeland, Roger Temam, Jeffrey Dean, David Grove,
-Craig Chambers, Kim B. Bruce, and Elisa Bertino}
+%\tocauthor{Thomas Dunajski, Jakob Höfner}
 %
-\institute{Princeton University, Princeton NJ 08544, USA,\\
-\email{I.Ekeland@princeton.edu},\\ WWW home page:
-\texttt{http://users/\homedir iekeland/web/welcome.html}
-\and
-Universit\'{e} de Paris-Sud,
-Laboratoire d'Analyse Num\'{e}rique, B\^{a}timent 425,\\
-F-91405 Orsay Cedex, France}
+
+\institute{Hochschule Darmstadt, Darmstadt, Germany}
 
 \maketitle % typeset the title of the contribution
 
@@ -48,24 +39,19 @@ F-91405 Orsay Cedex, France}
 %% The abstract
 %%
 \begin{abstract}
-The abstract should summarize the contents of the paper
-using at least 70 and at most 150 words. It will be set in 9-point
-font size and be inset 1.0 cm from the right and left margins.
-There will be two blank lines before and after the Abstract. \dots
-\keywords{computational geometry, graph theory, Hamilton cycles}
+Hash Tables are a very widely used data structure that maps keys to values. Using a hash function to compute indices allows them to complete operations very quickly. Balanced Binary Search Trees are trees with branches that are close to equal length, keeping their height to a minimum. Since the cost of most tree operations scales with the trees height, this is very time effective. This paper is dedicated to comparing the perfomance of both data structures. Less experienced programmers might not have any insight into the inner workings of the data structures they are relying on, or where the strengths of the individual structures lie. We performed benchmarks to measure how long it takes to retrieve values depending on the collection size. We also measured how long it takes to retrieve multiple sequential values. These benchmarks showed us that the Hash Table performance is not heavily impacted by the collection size, making it ideal for large collection sized.  The Search Tree was slower when retrieving single entries, but outperformed the Hash Table when multiple sequential values had to be found.
+\keywords{hash tables, binary search trees}
 \end{abstract}
+
+\tableofcontents
+\newpage
 
 %%
 %% Include all content.
 %%
-\input{content/example1}
-
-%%
-%% Include external BibTex data.
-%%
-\bibliographystyle{./splncs03}
-\bibliography{./paper}
-
+\input{content/introduction}
+\input{content/basicshashtables}
+\input{content/basicssearchtrees}
 %%
 %% The End.
 %%
