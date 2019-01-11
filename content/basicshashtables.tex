@@ -1,0 +1,8 @@
+\section{A Short Introduction to Hash Tables}
+A hash tables is a data structure commonly used for handling large amounts of data.
+There are implementations of hash tables in the standard libraries of most major programming languages, e.g. Java, C++, Python and C(?) [Citations for each].\\\\
+Like other implementations of maps, it stores pairs of unique keys and values they correspond to. The hash tables strength lies in its use of a hash function to map keys to integer indices in a set range. For finding a value, there is no need to iterate over any key-value-pairs, allowing for the operation to be completed in O(1) time.\\\\
+A good hash function should aim to provide a uniform distribution of all possible keys, meaning there should be few collisions. Collisions can, however, not be avoided entirely, meaning multiple keys will occasionally be mapped to the same index.\\\\
+To handle these collisions, hash tables do not store values at an index directly. Instead, each index addresses a linked list containing all values whose keys were mapped to that index.
+So for retrieving data, the key is first hashed, and then the correct value is found by iterating over the linked list stored at the computed index.\\\\
+These linked lists are also known as buckets. It is possible for all entries in a hash table to be stored in one bucket, in which case finding a value takes O(n) time because one has to iterate over a linked list of length n. This worst case scenario is however highly unlikely when numerous entries are stored in the table.
